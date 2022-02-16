@@ -1,31 +1,48 @@
-function updateCaseNumber(isIncreasing){
-    const caseInput = document.getElementById('case-number');
-   let caseNumber = caseInput.value;
+function updateProductNumber(product, price, isIncreasing){
+    const caseInput = document.getElementById(product+'-number');
+   let productNumber = caseInput.value;
 
    if(isIncreasing){
-    caseNumber = parseInt(caseNumber) + 1;
-   }else if(caseNumber > 0){
-    caseNumber = parseInt(caseNumber) - 1;
+    productNumber = parseInt(productNumber) + 1;
+   }else if(productNumber > 0){
+    productNumber = parseInt(productNumber) - 1;
    }
-   caseInput.value = caseNumber;
+   caseInput.value = productNumber;
 
 //    update case total price
-   const caseTotal = document.getElementById('case-total');
-   caseTotal.innerText = caseNumber *59;
+   const caseTotal = document.getElementById(product+'-total');
+   caseTotal.innerText = productNumber *price;
 }
+// phone update information
+document.getElementById('phone-plus').addEventListener('click', function(){
+   /*  const phoneInput = document.getElementById('phone-number');
+    const phoneNumber = phoneInput.value;
+    phoneInput.value = parseInt(phoneNumber) +1; */
+    updateProductNumber('phone', 1219, true);
+});
 
+document.getElementById('phone-minus').addEventListener('click', function(){
+    /* const phoneInput = document.getElementById('phone-number');
+    const phoneNumber = phoneInput.value;
+    phoneInput.value = parseInt(phoneNumber) - 1; */
+
+    updateProductNumber('phone', 1219, false);
+})
+
+// case update informations
 document.getElementById('case-plus').addEventListener('click', function(){
-    // let caseInput = document.getElementById('case-number');
-    // const caseNumber = caseInput.value;
-    // caseInput.value = parseInt(caseNumber) + 1;
-   updateCaseNumber(true);
+    /* let caseInput = document.getElementById('case-number');
+    const caseNumber = caseInput.value;
+    caseInput.value = parseInt(caseNumber) + 1; */
+   
+   updateProductNumber('case', 59, true);
    
 });
 
 document.getElementById('case-minus').addEventListener('click', function(){
-    // let caseInput = document.getElementById('case-number');
-    // const caseNumber = caseInput.value;
-    // caseInput.value = parseInt(caseNumber) -1;
-    updateCaseNumber(false);
+    /* let caseInput = document.getElementById('case-number');
+    const caseNumber = caseInput.value;
+    caseInput.value = parseInt(caseNumber) -1; */
+   updateProductNumber('case', 59, false);
 })
 
